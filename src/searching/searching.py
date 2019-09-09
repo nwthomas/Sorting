@@ -18,9 +18,9 @@ def binary_search(list, target):
     high = len(list) - 1
     while low <= high:
         guess = floor(low + high / 2)
-        if guess == target:
-            return target
-        elif guess > target:
+        if list[guess] == target:
+            return guess
+        elif list[guess] > target:
             high = guess - 1
         else:
             low = guess + 1
@@ -38,4 +38,4 @@ def binary_search_recursive(arr, target, low, high):
 
 
 if __name__ == "__main__":
-    print(binary_search([1, 2, 3, 4, 5, 6, 7, 8, 9], 10))
+    print(binary_search([-9, -8, -6, -4, -3, -2, 0, 1, 2, 3, 5, 7, 8, 9], 0))
