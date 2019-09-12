@@ -33,7 +33,9 @@ def bubble_sort(arr):
 def count_sort(l):
     largest = 0
     for num in l:
-        if num > largest:
+        if num < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+        elif num > largest:
             largest = num
     tracker = [0 for i in range(largest + 1)]
     final = [0 for i in range(len(l))]
