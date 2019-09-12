@@ -20,7 +20,7 @@ def bubble_sort(arr):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 # Indicate via boolean flag that change has occured
                 swapped = True
-        # End all loops if not swaps have happend on current iteration
+        # End all loops if no swaps have happend on current iteration
         if not swapped:
             break
         # Else reset boolean flag
@@ -30,8 +30,20 @@ def bubble_sort(arr):
 
 
 # STRETCH: implement the Count Sort function below
-
-
-def count_sort(arr, maximum=-1):
-
-    return arr
+def count_sort(l):
+    largest = 0
+    for num in l:
+        if num > largest:
+            largest = num
+    tracker = [0 for i in range(largest + 1)]
+    final = [0 for i in range(len(l))]
+    for num in l:
+        tracker[num] += 1
+    for i in range(len(tracker)):
+        if i > 0:
+            tracker[i] += tracker[i - 1]
+    for num in l:
+        if tracker[num] > 0:
+            final[tracker[num] - 1] = num
+            tracker[num] -= 1
+    return final
